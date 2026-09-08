@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Course overview — ENGMEC1, Statics of Rigid Bodies</title>
+<meta name="description" content="The ENGMEC1 syllabus in full: course description, outcomes, the fourteen-week learning plan, 4th hour activities, grading, rubric, class policies and references. De La Salle University, Gokongwei College of Engineering.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EEF1F2;
+    --paper-raised:#F8FAFA;
+    --ink:#152238;
+    --ink-soft:#516177;
+    --line:#CBD3D6;
+    --line-soft:#DCE2E3;
+    --blue:#2C5C99;
+    --blue-dim:#DCE6F1;
+    --red:#B03A2E;
+    --red-dim:#F2DEDA;
+    --ochre:#B8842E;
+    --ochre-dim:#F1E4CB;
+    --grid:#DEE6E9;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    background-color:var(--paper);
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size:34px 34px;
+  }
+  h1,h2,h3,h4{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:var(--blue);}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+  ::selection{background:var(--ochre-dim);}
+  :focus-visible{outline:2px solid var(--blue); outline-offset:2px;}
+
+  .shell{display:grid; grid-template-columns:220px 1fr; max-width:1400px; margin:0 auto;}
+  nav.rail{
+    position:sticky; top:0; align-self:start; height:100vh;
+    padding:32px 20px; border-right:1px solid var(--line); overflow-y:auto;
+    background:var(--paper-raised);
+  }
+  .rail-mark{display:flex; align-items:center; gap:10px; margin-bottom:34px;}
+  .rail-mark .tile{
+    width:36px;height:36px; border:1.5px solid var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono'; font-weight:600; font-size:11px; flex-shrink:0;
+    background:var(--paper);
+  }
+  .rail-mark span{font-size:13px; color:var(--ink-soft); line-height:1.3;}
+  .rail ol{list-style:none;margin:0;padding:0;counter-reset:sec;}
+  .rail li{counter-increment:sec;}
+  .rail a{
+    display:block; padding:7px 0; font-size:13.5px; color:var(--ink-soft);
+    text-decoration:none; border-left:2px solid transparent; padding-left:10px; margin-left:-11px;
+    transition:color .15s, border-color .15s;
+  }
+  .rail a::before{
+    content:counter(sec,decimal-leading-zero) " "; font-family:'IBM Plex Mono'; font-size:11px;
+    color:var(--line); margin-right:6px;
+  }
+  .rail a:hover{color:var(--ink);}
+  .rail a.active{color:var(--blue); border-left-color:var(--blue); font-weight:500;}
+  .rail a.active::before{color:var(--blue);}
+
+  .topbar{
+    display:none; position:sticky; top:0; z-index:30;
+    background:var(--paper-raised); border-bottom:1px solid var(--line);
+    padding:14px 20px; align-items:center; justify-content:space-between;
+  }
+  .topbar .tile{width:30px;height:30px;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono';font-weight:600;font-size:10px;}
+  .topbar button{background:none;border:1px solid var(--ink); width:36px;height:32px; font-size:16px; cursor:pointer; color:var(--ink);}
+  #mobileMenu{display:none; background:var(--paper-raised); border-bottom:1px solid var(--line); padding:8px 20px 18px;}
+  #mobileMenu.open{display:block;}
+  #mobileMenu a{display:block; padding:9px 0; font-size:14px; color:var(--ink-soft); text-decoration:none; border-bottom:1px solid var(--line-soft);}
+
+  main{min-width:0;}
+
+  /* ---------- Hero / title block ---------- */
+  .hero{padding:56px 0 8px;}
+  .hero .kicker{font-family:'IBM Plex Mono'; font-size:12.5px; color:var(--blue); letter-spacing:.04em;}
+  .hero h1{font-size:36px; margin:8px 0 4px;}
+  .hero .sub{color:var(--ink-soft); font-size:15px;}
+  .hero .desc{max-width:70ch; margin-top:18px; font-size:16.5px; color:var(--ink);}
+
+  .titleblock{margin-top:30px; border:2px solid var(--ink); background:var(--paper-raised);}
+  .tb-row{display:grid; grid-template-columns:repeat(4,1fr); border-bottom:1px solid var(--line);}
+  .tb-row:last-child{border-bottom:none;}
+  .tb-cell{padding:10px 14px; border-right:1px solid var(--line);}
+  .tb-cell:last-child{border-right:none;}
+  .tb-cell .k{font-family:'IBM Plex Mono'; font-size:10.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.03em;}
+  .tb-cell .v{font-size:14px; margin-top:3px; font-weight:500;}
+  .tb-cell .v.blank{color:var(--ink-soft); font-weight:400; font-style:italic;}
+
+  .type-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;}
+  .badge{border:1px solid var(--line); padding:5px 11px; font-size:12.5px; border-radius:20px; color:var(--ink-soft); background:var(--paper-raised);}
+  .badge.on{border-color:var(--blue); color:var(--blue); background:var(--blue-dim); font-weight:500;}
+
+  section{padding:52px 0; border-top:1px solid var(--line);}
+  .eyebrow{font-size:13px; color:var(--blue); margin-bottom:8px; font-family:'IBM Plex Mono';}
+  .section-head{margin-bottom:28px; max-width:72ch;}
+  .section-head h2{font-size:26px;}
+  .section-head p{color:var(--ink-soft); margin-top:10px; font-size:15.5px;}
+
+  .peo-list{display:flex; flex-direction:column; gap:12px; margin-top:8px;}
+  .peo-row{display:grid; grid-template-columns:80px 1fr; gap:16px; padding:14px 0; border-bottom:1px solid var(--line-soft);}
+  .peo-row .id{font-family:'IBM Plex Mono'; font-size:13px; color:var(--blue); font-weight:600;}
+  .peo-row p{margin:0; font-size:14.5px;}
+  .outcome-cards{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:26px;}
+  .outcome-card{border:1px solid var(--line); background:var(--paper-raised); padding:18px;}
+  .outcome-card .tag{font-family:'IBM Plex Mono'; font-size:11.5px; color:var(--blue); font-weight:600;}
+  .outcome-card p{margin:8px 0 0; font-size:14px; color:var(--ink-soft);}
+
+  .clo-list{margin-top:26px; display:flex; flex-direction:column; gap:10px;}
+  .clo-row{display:grid; grid-template-columns:70px 1fr; gap:16px; padding:12px 0; border-bottom:1px solid var(--line-soft);}
+  .clo-row .id{font-family:'IBM Plex Mono'; font-size:13px; color:var(--blue); font-weight:600;}
+  .clo-row p{margin:0; font-size:14.5px;}
+
+  table.matrix{border-collapse:collapse; margin-top:16px; font-size:13px; width:100%;}
+  table.matrix th, table.matrix td{border:1px solid var(--line); padding:8px 10px; text-align:center;}
+  table.matrix th{background:var(--paper-raised); font-weight:600; font-family:'IBM Plex Mono'; font-size:11.5px;}
+  table.matrix td:first-child, table.matrix th:first-child{text-align:left; font-family:'IBM Plex Mono'; font-size:12px;}
+  .cell-ic{background:var(--blue-dim); color:var(--blue); font-weight:600;}
+  .cell-pc{background:var(--ochre-dim); color:var(--ochre); font-weight:600;}
+  .matrix-note{font-size:12px; color:var(--ink-soft); margin-top:8px;}
+  .matrix-wrap{overflow-x:auto; margin-top:24px;}
+
+  table.output{border-collapse:collapse; width:100%; margin-top:20px; font-size:14.5px;}
+  table.output th{text-align:left; font-family:'IBM Plex Mono'; font-size:11.5px; color:var(--ink-soft); padding:10px 14px 10px 0; border-bottom:1px solid var(--ink);}
+  table.output td{padding:14px 14px 14px 0; border-bottom:1px solid var(--line-soft); vertical-align:top;}
+  table.output td.due{font-family:'IBM Plex Mono'; font-size:13px; white-space:nowrap; color:var(--blue);}
+  table.output td.req{color:var(--ink-soft); font-size:13.5px;}
+  .ps-notes{margin-top:22px; border-left:3px solid var(--blue); background:var(--blue-dim); padding:16px 18px; font-size:14px;}
+  .ps-notes ul{margin:8px 0 0; padding-left:18px;}
+
+  .plan-note{font-size:12.5px; color:var(--ink-soft); margin-bottom:14px; font-family:'IBM Plex Mono';}
+  .plan-list{margin-top:8px; border-top:1px solid var(--ink);}
+  .plan-item{border-bottom:1px solid var(--line);}
+  .plan-item.exam{background:var(--red-dim);}
+  .plan-head{
+    width:100%; display:grid; grid-template-columns:64px 1fr 90px 20px; align-items:center; gap:16px;
+    padding:16px 4px; background:none; border:none; text-align:left; cursor:pointer; font-family:inherit; color:inherit;
+  }
+  .plan-head .wk{font-family:'IBM Plex Mono'; font-size:12px; color:var(--ink-soft); border:1px solid var(--line); padding:4px 0; text-align:center;}
+  .plan-item.exam .plan-head .wk{border-color:var(--red); color:var(--red);}
+  .plan-head .title{font-size:15.5px; font-weight:500; font-family:'Space Grotesk';}
+  .plan-head .tag{font-size:11.5px; font-family:'IBM Plex Mono'; color:var(--ink-soft); text-align:right;}
+  .plan-item.exam .plan-head .tag{color:var(--red);}
+  .plan-head .chev{transition:transform .2s; color:var(--ink-soft); justify-self:end;}
+  .plan-item.open .plan-head .chev{transform:rotate(45deg);}
+  .plan-body{max-height:0; overflow:hidden; transition:max-height .25s ease;}
+  .plan-body-inner{padding:0 4px 22px 80px; font-size:14px; color:var(--ink-soft);}
+  .plan-body-inner ul{margin:8px 0; padding-left:18px;}
+  .plan-body-inner .row{display:flex; gap:28px; flex-wrap:wrap; margin-top:10px;}
+  .plan-body-inner .col h5{font-family:'IBM Plex Mono'; font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-soft); margin:0 0 6px;}
+
+  .rubric-wrap{overflow-x:auto; margin-top:20px;}
+  table.rubric{border-collapse:collapse; width:100%; min-width:820px; font-size:13px;}
+  table.rubric th{background:var(--ink); color:var(--paper); font-weight:500; padding:10px 12px; text-align:left; font-family:'IBM Plex Mono'; font-size:11.5px;}
+  table.rubric td{border:1px solid var(--line); padding:12px; vertical-align:top; background:var(--paper-raised);}
+  table.rubric td.crit{font-weight:600; background:var(--paper); font-family:'Space Grotesk'; font-size:14px;}
+  table.rubric .pts{display:block; margin-top:6px; font-family:'IBM Plex Mono'; font-size:11px; color:var(--blue);}
+
+  .fha-list{margin-top:8px;}
+  .fha-item{border-bottom:1px solid var(--line-soft);}
+  .fha-head{
+    width:100%; display:flex; justify-content:space-between; align-items:center; gap:16px;
+    padding:16px 2px; background:none; border:none; text-align:left; cursor:pointer; font-family:inherit; color:inherit;
+  }
+  .fha-head .t{font-size:15px; font-weight:500; font-family:'Space Grotesk';}
+  .fha-head .n{font-family:'IBM Plex Mono'; font-size:11.5px; color:var(--ink-soft);}
+  .fha-body{max-height:0; overflow:hidden; transition:max-height .22s ease;}
+  .fha-body-inner{padding:2px 2px 18px 4px;}
+  .fha-body-inner ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px;}
+  .fha-body-inner li a{
+    font-size:13.5px; text-decoration:none; display:flex; gap:8px; align-items:baseline;
+    padding:6px 10px; border:1px solid var(--line-soft); background:var(--paper-raised);
+  }
+  .fha-body-inner li a:hover{border-color:var(--blue);}
+  .fha-body-inner li a::before{content:"→"; color:var(--blue); flex-shrink:0;}
+
+  .grading-cols{display:grid; grid-template-columns:1fr 1fr; gap:44px; margin-top:8px;}
+  table.weights{border-collapse:collapse; width:100%; font-size:14.5px;}
+  table.weights td{padding:11px 0; border-bottom:1px solid var(--line-soft);}
+  table.weights td:last-child{text-align:right; font-family:'IBM Plex Mono'; color:var(--blue); font-weight:600;}
+  table.weights tr.total td{border-top:1.5px solid var(--ink); border-bottom:none; font-weight:600; padding-top:14px;}
+
+  .calc{border:1px solid var(--line); background:var(--paper-raised); padding:22px;}
+  .calc h3{font-size:15px; margin-bottom:4px;}
+  .calc p.hint{font-size:12.5px; color:var(--ink-soft); margin:0 0 18px;}
+  .calc label{display:block; font-size:13px; margin-top:14px; color:var(--ink-soft);}
+  .calc .row{display:flex; align-items:center; gap:10px;}
+  .calc input[type=range]{flex:1; accent-color:var(--blue);}
+  .calc output{font-family:'IBM Plex Mono'; font-size:13px; width:42px; text-align:right;}
+  .calc .result{margin-top:20px; padding:16px; border:1px dashed var(--line); display:flex; justify-content:space-between; align-items:baseline;}
+  .calc .result .lbl{font-size:13px; color:var(--ink-soft);}
+  .calc .result .val{font-family:'IBM Plex Mono'; font-size:26px; font-weight:600; color:var(--blue);}
+  .calc .result .gpe{font-family:'IBM Plex Mono'; font-size:13px; color:var(--ink-soft);}
+  .scale-mini{margin-top:14px; font-size:11.5px; color:var(--ink-soft); display:flex; flex-wrap:wrap; gap:6px;}
+  .scale-mini span{border:1px solid var(--line-soft); padding:2px 6px; font-family:'IBM Plex Mono';}
+  .note-box{margin-top:20px; font-size:13px; color:var(--ink-soft); border-left:3px solid var(--ochre); background:var(--ochre-dim); padding:12px 16px;}
+
+  table.ai{border-collapse:collapse; width:100%; margin-top:20px; font-size:14px;}
+  table.ai th{text-align:left; font-family:'IBM Plex Mono'; font-size:11px; color:var(--ink-soft); padding-bottom:10px; border-bottom:1px solid var(--ink);}
+  table.ai td{padding:16px 14px 16px 0; border-bottom:1px solid var(--line-soft); vertical-align:top;}
+  .level{display:inline-block; font-family:'IBM Plex Mono'; font-size:11.5px; padding:4px 9px; border-radius:20px;}
+  .level.banned{background:var(--red-dim); color:var(--red);}
+  .ai-note{margin-top:22px; padding:16px 18px; border-left:3px solid var(--red); background:var(--red-dim); font-size:14px; color:var(--ink);}
+
+  .policy-group{border-bottom:1px solid var(--line-soft);}
+  .policy-group-head{
+    width:100%; display:flex; justify-content:space-between; align-items:center; gap:16px;
+    padding:18px 2px; background:none; border:none; text-align:left; cursor:pointer; font-family:inherit; color:inherit;
+  }
+  .policy-group-head .t{font-size:16px; font-weight:600; font-family:'Space Grotesk';}
+  .policy-group-body{max-height:0; overflow:hidden; transition:max-height .22s ease;}
+  .policy-group-body-inner{padding:0 2px 20px 4px; font-size:14px; color:var(--ink-soft);}
+  .policy-group-body-inner ol{margin:0; padding-left:20px; display:flex; flex-direction:column; gap:10px;}
+
+  .ref-list{margin-top:8px; display:flex; flex-direction:column; gap:14px;}
+  .ref-item{font-size:14.5px; padding-left:18px; border-left:2px solid var(--line); color:var(--ink-soft);}
+  .ref-item strong{color:var(--ink); font-style:normal;}
+  .ref-item a{font-size:13px;}
+
+  footer{padding:44px 0 60px;}
+  .sign-grid{display:grid; grid-template-columns:1fr 1fr; gap:32px; max-width:640px; margin-top:26px;}
+  .sign-grid .role{font-size:12px; color:var(--ink-soft); font-family:'IBM Plex Mono'; margin-bottom:6px;}
+  .sign-grid .who{font-size:15px; font-family:'Space Grotesk'; font-weight:600;}
+  .sign-grid .sub{font-size:13px; color:var(--ink-soft);}
+  .ver{font-family:'IBM Plex Mono'; font-size:12.5px; color:var(--ink-soft);}
+
+  @media (max-width:940px){
+    .shell{grid-template-columns:1fr;}
+    nav.rail{display:none;}
+    .topbar{display:flex;}
+    .tb-row{grid-template-columns:1fr 1fr;}
+    .outcome-cards{grid-template-columns:1fr;}
+    .grading-cols{grid-template-columns:1fr;}
+    .plan-head{grid-template-columns:48px 1fr 16px;}
+    .plan-head .tag{display:none;}
+    .plan-body-inner{padding-left:16px;}
+  }
+  @media (max-width:560px){
+    .tb-row{grid-template-columns:1fr;}
+    .tb-cell{border-right:none; border-bottom:1px solid var(--line);}
+    .wrap{padding:0 18px;}
+    .hero{padding:36px 0 4px;}
+    .hero h1{font-size:28px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition-duration:.001ms !important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <div class="tile">&Sigma;F=0</div>
+    <strong style="font-family:'Space Grotesk';">ENGMEC1</strong>
+  </div>
+  <button id="menuBtn" aria-expanded="false" aria-controls="mobileMenu">&#9776;</button>
+</div>
+<div id="mobileMenu"></div>
+
+<div class="shell">
+  <nav class="rail" aria-label="Section navigation">
+    <div class="rail-mark">
+      <div class="tile">&Sigma;F=0</div>
+      <span>Statics of<br>Rigid Bodies</span>
+    </div>
+    <ol id="railList"></ol>
+  </nav>
+
+  <main>
+    <section class="hero wrap" id="overview" style="border-top:none;">
+      <div class="kicker">GCOE &middot; DEPARTMENT OF CIVIL ENGINEERING</div>
+      <h1>Statics of Rigid Bodies</h1>
+      <div class="sub">ENGMEC1 &middot; Three (3) units &middot; Prerequisites: ENGPHYS (H) / CALENG2 (S)</div>
+      <p class="desc">ENGMEC1 is a branch of Engineering Mechanics that deals with the study of forces and their effects on rigid bodies in static equilibrium. This course involves the analysis of two- and three-dimensional structures to determine external and internal effects resulting from applied forces. Key geometric properties such as centroids and moments of inertia, critical for structural design, are also covered — forming the foundation for further study in the mechanics of deformable bodies, structural analysis, and design.</p>
+
+      <div class="type-row">
+        <span class="badge">Hybrid</span>
+        <span class="badge">Fully online</span>
+        <span class="badge">Fully asynchronous</span>
+        <span class="badge on">In-person</span>
+        <span class="badge">Predominantly online</span>
+        <span class="badge">Predominantly in-person</span>
+      </div>
+
+      <div class="titleblock">
+        <div class="tb-row">
+          <div class="tb-cell"><div class="k">College</div><div class="v">GCOE</div></div>
+          <div class="tb-cell"><div class="k">Department</div><div class="v">Civil Engineering</div></div>
+          <div class="tb-cell"><div class="k">Course code</div><div class="v">ENGMEC1</div></div>
+          <div class="tb-cell"><div class="k">Units</div><div class="v">Three (3)</div></div>
+        </div>
+        <div class="tb-row">
+          <div class="tb-cell" style="grid-column:span 2;"><div class="k">Course title</div><div class="v">Statics of Rigid Bodies</div></div>
+          <div class="tb-cell" style="grid-column:span 2;"><div class="k">Prerequisites</div><div class="v">ENGPHYS (H) / CALENG2 (S)</div></div>
+        </div>
+        <div class="tb-row">
+          <div class="tb-cell"><div class="k">Instructor</div><div class="v blank">TBA</div></div>
+          <div class="tb-cell"><div class="k">Contact details</div><div class="v blank">TBA</div></div>
+          <div class="tb-cell"><div class="k">Consultation hours</div><div class="v blank">TBA</div></div>
+          <div class="tb-cell"><div class="k">Class schedule</div><div class="v blank">TBA</div></div>
+        </div>
+        <div class="tb-row">
+          <div class="tb-cell"><div class="k">Term, AY</div><div class="v">Term 1, AY 2026&ndash;2027</div></div>
+          <div class="tb-cell" style="grid-column:span 3;"><div class="k">Room / Recurring Zoom link</div><div class="v blank">TBA</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="objectives">
+      <div class="section-head">
+        <div class="eyebrow">Program educational objectives</div>
+        <h2>What the BSCE program aims for</h2>
+        <p>PEOs describe the career and professional accomplishments of BSCE graduates about five years after graduation.</p>
+      </div>
+      <div class="peo-list">
+        <div class="peo-row"><div class="id">PEO 1</div><p><strong>Leadership in the practice of the profession</strong> — graduates demonstrate a high level of technical expertise, especially in a specialized field of civil engineering, cognizant of societal needs and ethical responsibilities.</p></div>
+        <div class="peo-row"><div class="id">PEO 2</div><p><strong>Life-long learning</strong> — graduates pursue sustained life-long learning adaptive to the changing needs of the profession and the community.</p></div>
+        <div class="peo-row"><div class="id">PEO 3</div><p><strong>Social responsibility</strong> — graduates engage in activities that promote professional and community development.</p></div>
+      </div>
+    </section>
+
+    <section class="wrap" id="outcomes">
+      <div class="section-head">
+        <div class="eyebrow">Graduate attribute, student outcome &amp; SDG</div>
+        <h2>What this course targets</h2>
+      </div>
+      <div class="outcome-cards">
+        <div class="outcome-card"><div class="tag">ELGA 1</div><p>Culturally Sensitive Critical &amp; Creative Thinkers</p></div>
+        <div class="outcome-card"><div class="tag">SO-A</div><p>An ability to apply principles of engineering, science and mathematics to solve complex engineering problems.</p></div>
+        <div class="outcome-card"><div class="tag">SDG 9</div><p>Industry, Innovation and Infrastructure</p></div>
+      </div>
+
+      <div class="section-head" style="margin-top:38px;">
+        <h2 style="font-size:22px;">Course learning outcomes (CLO)</h2>
+        <p>On completion of the course, the student is expected to do the following:</p>
+      </div>
+      <div class="clo-list">
+        <div class="clo-row"><div class="id">CLO 1</div><p>Identify and determine the components and resultant of forces and force systems in 2D and 3D.</p></div>
+        <div class="clo-row"><div class="id">CLO 2</div><p>Analyze the effects of forces on rigid bodies in static equilibrium using free body diagrams and equations of equilibrium.</p></div>
+        <div class="clo-row"><div class="id">CLO 3</div><p>Analyze the external and internal effects of forces on structures such as beams, trusses, frames, and simple machines.</p></div>
+        <div class="clo-row"><div class="id">CLO 4</div><p>Analyze the effects of friction forces on rigid bodies in static equilibrium.</p></div>
+        <div class="clo-row"><div class="id">CLO 5</div><p>Solve the properties (centroid, center of gravity, and moment of inertia) of areas and lines, and apply these properties in equilibrium problems.</p></div>
+      </div>
+
+      <div class="matrix-wrap">
+        <table class="matrix">
+          <thead><tr><th>&nbsp;</th><th>SDG 9</th></tr></thead>
+          <tbody><tr><td>CLO 1 &ndash; CLO 5</td><td class="cell-pc">PC</td></tr></tbody>
+        </table>
+        <p class="matrix-note">PC = Potentially Contributes — the course is not designed around the SDG, but its projects/activities have the potential to contribute to it.</p>
+      </div>
+      <div class="matrix-wrap">
+        <table class="matrix">
+          <thead><tr><th>&nbsp;</th><th>ELGA 1</th><th>SO-A</th></tr></thead>
+          <tbody><tr><td>CLO 1 &ndash; CLO 5</td><td class="cell-ic">IC</td><td class="cell-ic">IC</td></tr></tbody>
+        </table>
+        <p class="matrix-note">IC = Introductory — students are introduced to a new concept or skill.</p>
+      </div>
+    </section>
+
+    <section class="wrap" id="output">
+      <div class="section-head">
+        <div class="eyebrow">Final course output</div>
+        <h2>What you submit, and when</h2>
+        <p>As evidence of attaining the outcomes above (Student Outcome A: applying engineering, science and math principles to solve complex problems), you're required to complete the following during the term.</p>
+      </div>
+      <table class="output">
+        <thead><tr><th>Learning outcome</th><th>Required output</th><th>Due</th></tr></thead>
+        <tbody>
+          <tr><td>CLO 1 &ndash; CLO 5</td><td class="req">Problem Sets</td><td class="due">See schedule</td></tr>
+          <tr><td>CLO 1 &ndash; CLO 2</td><td class="req">Long Quiz No. 1</td><td class="due">Week 5</td></tr>
+          <tr><td>CLO 3</td><td class="req">Long Quiz No. 2</td><td class="due">Week 8</td></tr>
+          <tr><td>CLO 1 &ndash; CLO 2, CLO 4 &ndash; CLO 5</td><td class="req">Long Quiz No. 3</td><td class="due">Week 12</td></tr>
+          <tr><td>CLO 1 &ndash; CLO 5</td><td class="req">Final Exam</td><td class="due">Week 14</td></tr>
+        </tbody>
+      </table>
+      <div class="ps-notes">
+        <strong>Problem sets</strong> are supplementary activities to apply the theory, principles and tools of ENGMEC1 — some open-ended and representing real structures, with parameters that may vary per student or group. Complete individually; a Knowledge Check Quiz (KCQ) may also be given weekly and is treated like a problem set.
+        <ul>
+          <li><strong>PS No. 1</strong> (CLO1, CLO2) — Resultants and Equilibrium of Force Systems in 2D</li>
+          <li><strong>PS No. 2</strong> (CLO3) — Analysis of Trusses and Frames</li>
+          <li><strong>PS No. 3</strong> (CLO4, CLO5) — Friction, Centroids, Moment of Inertia, Forces in 3D (Optional)</li>
+        </ul>
+        No solution submitted, no credit — incomplete submissions aren't accepted, late work is penalized 10%/day, and submissions over a week late receive zero.
+      </div>
+    </section>
+
+    <section class="wrap" id="plan">
+      <div class="section-head">
+        <div class="eyebrow">Learning plan</div>
+        <h2>Fourteen weeks, topic by topic</h2>
+        <p>Tap a week to see its topics and activities. Weeks in red are long quizzes or the final exam.</p>
+      </div>
+      <div class="plan-note">Manila campus: M/T/W face-to-face, H/F/S online &middot; Laguna campus: M/T/W online, H/F/S face-to-face</div>
+      <div class="plan-list" id="planList"></div>
+    </section>
+
+    <section class="wrap" id="rubric">
+      <div class="section-head">
+        <div class="eyebrow">Rubric for assessment</div>
+        <h2>How problem sets &amp; quizzes are graded</h2>
+      </div>
+      <div class="rubric-wrap">
+        <table class="rubric">
+          <thead><tr><th>Criteria</th><th>Exemplary &mdash; 4</th><th>Satisfactory &mdash; 3</th><th>Developing &mdash; 2</th><th>Beginning &mdash; 1</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="crit">Analysis &amp; application of theory<br><span style="font-size:11px;font-family:'IBM Plex Mono';color:var(--ink-soft);">60%</span></td>
+              <td>Problem analyzed correctly; theory and principles used are correct.<span class="pts">50&ndash;60 pts</span></td>
+              <td>Problem analyzed correctly, but some theory/principles used are incorrect.<span class="pts">30&ndash;50 pts</span></td>
+              <td>Problem analyzed incorrectly; some theory/principles used are incorrect.<span class="pts">10&ndash;30 pts</span></td>
+              <td>Problem analyzed incorrectly; theory and principles used are incorrect.<span class="pts">0&ndash;10 pts</span></td>
+            </tr>
+            <tr>
+              <td class="crit">Computation &amp; procedure<br><span style="font-size:11px;font-family:'IBM Plex Mono';color:var(--ink-soft);">40%</span></td>
+              <td>Procedure correct; values computed accurately with correct units.<span class="pts">30&ndash;40 pts</span></td>
+              <td>Procedure correct with minor numerical errors; some values with incorrect units.<span class="pts">20&ndash;30 pts</span></td>
+              <td>Major mistakes in procedure and computation; some incorrect units.<span class="pts">10&ndash;20 pts</span></td>
+              <td>Procedure and basic computation are incorrect.<span class="pts">0&ndash;10 pts</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note-box">Attendance is checked at all times in-person and synchronous sessions. Seatwork should be done independently — collaborative homework is fine, but each student completes their own submission.</div>
+    </section>
+
+    <section class="wrap" id="fha">
+      <div class="section-head">
+        <div class="eyebrow">4th hour activities</div>
+        <h2>Supplementary videos, by topic</h2>
+        <p>To supplement in-class lectures, you're encouraged to work through these student-centered learning resources.</p>
+      </div>
+      <div class="fha-list" id="fhaList"></div>
+    </section>
+
+    <section class="wrap" id="grading">
+      <div class="section-head">
+        <div class="eyebrow">Grading system</div>
+        <h2>How your grade is computed</h2>
+        <p>The final grade is computed only from the items below — no extra-credit projects apply in this course.</p>
+      </div>
+      <div class="grading-cols">
+        <div>
+          <table class="weights">
+            <tbody>
+              <tr><td>Long quizzes (average of 3)</td><td>60%</td></tr>
+              <tr><td>Final exam</td><td>25%</td></tr>
+              <tr><td>Problem sets / KCQs</td><td>15%</td></tr>
+              <tr class="total"><td>Total</td><td>100%</td></tr>
+            </tbody>
+          </table>
+          <div class="scale-mini">
+            <span>94&ndash;100 &rarr; 4.0</span><span>88&ndash;93.9 &rarr; 3.5</span><span>82&ndash;87.9 &rarr; 3.0</span><span>76&ndash;81.9 &rarr; 2.5</span>
+            <span>70&ndash;75.9 &rarr; 2.0</span><span>65&ndash;69.9 &rarr; 1.5</span><span>60&ndash;64.9 &rarr; 1.0</span><span>&lt;60 &rarr; 0.0</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--ink-soft);margin-top:12px;">Passing grade: 60%</p>
+        </div>
+
+        <div class="calc">
+          <h3>Estimate your grade</h3>
+          <p class="hint">Drag each slider to see the weighted percentage and GPE update live. For your own planning only — not an official record.</p>
+          <label>Long quiz average <span class="row"><input type="range" id="rQuiz" min="0" max="100" value="75"><output id="oQuiz">75</output></span></label>
+          <label>Final exam <span class="row"><input type="range" id="rFinal" min="0" max="100" value="75"><output id="oFinal">75</output></span></label>
+          <label>Problem sets / KCQs <span class="row"><input type="range" id="rPS" min="0" max="100" value="85"><output id="oPS">85</output></span></label>
+          <div class="result">
+            <div><div class="lbl">Weighted percentage</div><div class="val" id="finalPct">76.5</div></div>
+            <div class="gpe" id="finalGpe">GPE 2.5</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="ai-policy">
+      <div class="section-head">
+        <div class="eyebrow">Generative AI-use policy</div>
+        <h2>Banned across the board</h2>
+      </div>
+      <table class="ai">
+        <thead><tr><th>Grade component</th><th>Policy level</th></tr></thead>
+        <tbody>
+          <tr><td>Long quizzes</td><td><span class="level banned">Banned</span></td></tr>
+          <tr><td>Final exam</td><td><span class="level banned">Banned</span></td></tr>
+          <tr><td>Problem sets</td><td><span class="level banned">Banned</span></td></tr>
+        </tbody>
+      </table>
+      <div class="ai-note">Statics of Rigid Bodies deals with the study of forces and their effects on rigid bodies in static equilibrium. While generative AI can augment the course learning outcomes, it also risks introducing misleading information. Students are not allowed to use generative AI for problem-set submissions — violations are treated as academic dishonesty.</div>
+    </section>
+
+    <section class="wrap" id="policies">
+      <div class="section-head">
+        <div class="eyebrow">Class policies</div>
+        <h2>What's expected of you</h2>
+      </div>
+      <div id="policyGroups"></div>
+    </section>
+
+    <section class="wrap" id="references">
+      <div class="section-head">
+        <div class="eyebrow">Teaching strategy &amp; references</div>
+        <h2>How this course is taught, and from what</h2>
+        <p><strong>Outcomes-based teaching strategy.</strong></p>
+      </div>
+      <div class="ref-list" id="refList"></div>
+    </section>
+
+    <footer class="wrap">
+      <div class="eyebrow">Syllabus version</div>
+      <p class="ver">Term 1 / AY 2026&ndash;2027 &middot; IOUA updated August 2026</p>
+      <div class="sign-grid">
+        <div><div class="role">Prepared by</div><div class="who">Dr. Irene Olivia Ubay-Anongphouth</div><div class="sub">Course Coordinator</div></div>
+        <div><div class="role">Approved by</div><div class="who">Dr. Mario De Leon</div><div class="sub">Chair, Department of Civil Engineering</div></div>
+      </div>
+    </footer>
+  </main>
+</div>
+
+<script>
+  const sections = [
+    {id:'overview', label:'Course overview'},
+    {id:'objectives', label:'Program objectives'},
+    {id:'outcomes', label:'Outcomes & CLOs'},
+    {id:'output', label:'Final course output'},
+    {id:'plan', label:'Learning plan'},
+    {id:'rubric', label:'Assessment rubric'},
+    {id:'fha', label:'4th hour activities'},
+    {id:'grading', label:'Grading system'},
+    {id:'ai-policy', label:'Generative AI policy'},
+    {id:'policies', label:'Class policies'},
+    {id:'references', label:'References'},
+  ];
+  const railList = document.getElementById('railList');
+  const mobileMenu = document.getElementById('mobileMenu');
+  sections.forEach(s=>{
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = '#'+s.id; a.textContent = s.label; a.dataset.target = s.id;
+    li.appendChild(a); railList.appendChild(li);
+    const ma = document.createElement('a');
+    ma.href = '#'+s.id; ma.textContent = s.label;
+    mobileMenu.appendChild(ma);
+  });
+  const railLinks = railList.querySelectorAll('a');
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        railLinks.forEach(a=>a.classList.toggle('active', a.dataset.target===e.target.id));
+      }
+    });
+  }, {rootMargin:'-20% 0px -70% 0px'});
+  sections.forEach(s=>{
+    const el = document.getElementById(s.id);
+    if(el) observer.observe(el);
+  });
+  document.getElementById('menuBtn').addEventListener('click', ()=> mobileMenu.classList.toggle('open'));
+  mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>mobileMenu.classList.remove('open')));
+
+  const plan = [
+    {wk:'1', title:'Orientation & introduction to ENGMEC1', exam:false,
+      topics:['Course orientation','Mechanics: basic concepts, scalars & vectors, Newton\u2019s laws, units, free body diagram','Force systems (2D): definitions, types, external/internal effects, principle of transmissibility, components, classification'],
+      activities:['Class lecture','Knowledge Check Quiz']},
+    {wk:'2', title:'Moment of a force \u00b7 resultants of 2D force systems', exam:false,
+      topics:['Moment of a force, Varignon\u2019s theorem, vector analysis (addition, subtraction, multiplication)','Couple; resultants of coplanar force systems \u2014 concurrent and parallel'],
+      activities:['Class lecture','KCQ']},
+    {wk:'3', title:'Resultants (non-concurrent) \u00b7 equilibrium of 2D force systems', exam:false,
+      topics:['Resultants of non-concurrent, non-parallel coplanar force systems','Equilibrium: free body diagrams, 2D support types, equations of equilibrium, concurrent & parallel equilibrium'],
+      activities:['Class lecture','KCQ']},
+    {wk:'4', title:'Equilibrium of 2D force systems (cont.)', exam:false,
+      topics:['Equilibrium of non-concurrent, non-parallel coplanar systems','Review seatwork'],
+      activities:['Class lecture','KCQ']},
+    {wk:'5', title:'Long Quiz 1 \u00b7 analysis of trusses', exam:true,
+      topics:['Long Quiz No. 1 \u2014 CLO1, CLO2','Structures: definition of a plane truss, connections & supports, method of joints'],
+      activities:['Written long quiz','Class lecture','KCQ']},
+    {wk:'6', title:'Analysis of trusses \u2014 method of sections \u00b7 frames', exam:false,
+      topics:['Analysis of a plane truss by method of sections','Definition of a frame; analysis of pin-jointed frames'],
+      activities:['Class lecture','KCQ']},
+    {wk:'7', title:'Review \u00b7 friction', exam:false,
+      topics:['Review seatwork','Friction: types, dry friction & coefficient, angle of friction, factors affecting friction; applications \u2014 square-threaded screws, belt friction'],
+      activities:['Class lecture','KCQ']},
+    {wk:'8', title:'Long Quiz 2 \u00b7 independent learning week', exam:true,
+      topics:['Long Quiz No. 2 \u2014 CLO3','Independent Learning Week begins: watch suggested videos, resolve sample problems already discussed in class'],
+      activities:['Written long quiz','Self-paced review']},
+    {wk:'9', title:'Independent learning week (cont.) \u00b7 application of friction', exam:false,
+      topics:['Independent Learning Week continues','Application of friction: wedges'],
+      activities:['Self-paced review','Class lecture','KCQ']},
+    {wk:'10', title:'Centroids by integration \u00b7 composite figures', exam:false,
+      topics:['Distributed forces: center of mass, center of gravity, centroid of areas and lines by integration','Centroids of composite bodies/figures by approximation; special topics \u2014 distributed loads'],
+      activities:['Class lecture','KCQ']},
+    {wk:'11', title:'Moment of inertia \u00b7 review', exam:false,
+      topics:['Moment of inertia: definitions, rectangular & polar MOI, radius of gyration, composite areas, parallel-axis theorem, product of inertia','Review seatwork'],
+      activities:['Class lecture','KCQ']},
+    {wk:'12', title:'Long Quiz 3 \u00b7 resultant of 3D force systems', exam:true,
+      topics:['Long Quiz No. 3 \u2014 CLO4, CLO5 (friction, centroids, MOI; may include forces in space)','Force systems (3D): resultant of spatial force systems'],
+      activities:['Written long quiz','Class lecture','KCQ']},
+    {wk:'13', title:'Equilibrium of 3D force systems \u00b7 review', exam:false,
+      topics:['Force systems (3D): equilibrium of spatial force systems','Review seatwork'],
+      activities:['Class lecture','KCQ']},
+    {wk:'14', title:'Final examination', exam:true, topics:['Comprehensive \u2014 CLO1 to CLO5'], activities:['Final examination (departmental, in-person)']},
+  ];
+  const planList = document.getElementById('planList');
+  plan.forEach(p=>{
+    const item = document.createElement('div');
+    item.className = 'plan-item' + (p.exam ? ' exam' : '');
+    const bodyHtml = `
+      <div class="row">
+        ${p.topics && p.topics.length ? `<div class="col"><h5>Topics</h5><ul>${p.topics.map(t=>`<li>${t}</li>`).join('')}</ul></div>` : ''}
+        ${p.activities && p.activities.length ? `<div class="col"><h5>Activities</h5><ul>${p.activities.map(t=>`<li>${t}</li>`).join('')}</ul></div>` : ''}
+      </div>`;
+    item.innerHTML = `
+      <button class="plan-head" aria-expanded="false">
+        <span class="wk">Wk ${p.wk}</span>
+        <span class="title">${p.title}</span>
+        <span class="tag">${p.exam ? 'Quiz/Exam' : 'Lecture'}</span>
+        <span class="chev">+</span>
+      </button>
+      <div class="plan-body"><div class="plan-body-inner">${bodyHtml}</div></div>
+    `;
+    planList.appendChild(item);
+    const head = item.querySelector('.plan-head');
+    const body = item.querySelector('.plan-body');
+    head.addEventListener('click', ()=>{
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.plan-item.open').forEach(o=>{
+        if(o!==item){ o.classList.remove('open'); o.querySelector('.plan-body').style.maxHeight=null; o.querySelector('.plan-head').setAttribute('aria-expanded','false'); }
+      });
+      item.classList.toggle('open', !isOpen);
+      head.setAttribute('aria-expanded', String(!isOpen));
+      body.style.maxHeight = !isOpen ? body.scrollHeight+'px' : null;
+    });
+  });
+
+  const fha = [
+    {t:'Introduction', links:[
+      ['ST01: Force Vector (2D)', 'https://www.youtube.com/watch?v=2Obc7vO0Ty8&list=PLjrNUPGdy6haSz1pZYw1OddVwyFgp64Lz&index=1'],
+      ['Resolving Vectors \u2014 Splitting a Force into Components', 'https://www.youtube.com/watch?v=ffYuVPo9a4w&list=PL5pdglZEO3NhjHVz7vHl_dMnMmKC90Q6x'],
+    ]},
+    {t:'Moment of a force \u00b7 resultants of 2D force systems', links:[
+      ['Moment of a Force', 'https://www.youtube.com/watch?v=izbxpjNg7Q8'],
+      ['How to Find Resultant Force \u2014 Two Forces', 'https://www.youtube.com/watch?v=w2WUJHQF6wA&list=PL5pdglZEO3NhjHVz7vHl_dMnMmKC90Q6x&index=2'],
+      ['Resultant Forces \u2014 Example (1)', 'https://www.youtube.com/watch?v=Q9yiOTLNHMo&list=PL5pdglZEO3NhjHVz7vHl_dMnMmKC90Q6x&index=3'],
+    ]},
+    {t:'Resultants of 2D force systems \u00b7 equilibrium', links:[
+      ['Resultant Forces \u2014 Resolving Example', 'https://www.youtube.com/watch?v=Bu37KLm8_ZY&list=PL5pdglZEO3NhjHVz7vHl_dMnMmKC90Q6x&index=6'],
+    ]},
+    {t:'Equilibrium', links:[
+      ['ST02: Particle Equilibrium (2D)', 'https://www.youtube.com/watch?v=X_zfH8jW9nU&list=PLjrNUPGdy6haSz1pZYw1OddVwyFgp64Lz&index=2'],
+      ['ST03: Rigid Body Equilibrium (I)', 'https://www.youtube.com/watch?v=er6Oc0iPQU&list=PLjrNUPGdy6haSz1pZYw1OddVwyFgp64Lz&index=3'],
+      ['ST04: Free Body Diagram for Rigid Body Equilibrium (I)', 'https://www.youtube.com/watch?v=go4vsgnb9jU&list=PLjrNUPGdy6haSz1pZYw1OddVwyFgp64Lz&index=4'],
+      ['ST05: Free Body Diagram for Rigid Body Equilibrium (II)', 'https://www.youtube.com/watch?v=Qv2WoqJlIKQ&list=PLjrNUPGdy6haSz1pZYw1OddVwyFgp64Lz&index=5'],
+      ['ST06: Free Body Diagram for Rigid Body Equilibrium (III)', 'https://www.youtube.com/watch?v=Knk068PCOg&list=PLjrNUPGdy6haSz1pZYw1OddVwyFgp64Lz&index=6'],
+      ['Moments of a Force \u2014 Beam on 1 Support', 'https://www.youtube.com/watch?v=4SHc_I6SS-k'],
+      ['Moments of a Force \u2014 Beam on 2 Supports', 'https://www.youtube.com/watch?v=DQqF8PpMsHs'],
+    ]},
+    {t:'Analysis of trusses', links:[
+      ['ST07: Statically Determinate Beam Analysis', 'https://www.youtube.com/watch?v=1YpoLjKtl3Q&list=PLjrNUPGdy6haSz1pZYw1OddVwyFgp64Lz&index=7'],
+      ['SA01: Structural Analysis \u2014 Statically Determinate Beams', 'https://www.youtube.com/watch?v=aNi_Zn_gQrA&list=PLjrNUPGdy6hZT9oBK7_6S--tK_lUE9Xtw&index=1'],
+      ['SA02: Structural Analysis \u2014 Stability', 'https://www.youtube.com/watch?v=Oj8hIdXukkE&list=PLjrNUPGdy6hZT9oBK7_6S--tK_lUE9Xtw&index=2'],
+      ['ST13: Truss Analysis (Method of Joints)', 'https://www.youtube.com/watch?v=0agNov4JigA&list=PLjrNUPGdy6haSz1pZYw1OddVwyFgp64Lz&index=13'],
+      ['ST14: Identifying Zero-Force Members in Trusses', 'https://www.youtube.com/watch?v=0AFou75Xft0&list=PLjrNUPGdy6haSz1pZYw1OddVwyFgp64Lz&index=14'],
+    ]},
+    {t:'Trusses \u2014 method of sections \u00b7 frames', links:[
+      ['ST15: Truss Analysis Using the Method of Sections', 'https://www.youtube.com/watch?v=GOKfuendjA4&list=PLjrNUPGdy6haSz1pZYw1OddVwyFgp64Lz&index=15'],
+      ['Analysis of Trusses and Frames IV \u2014 Pin-Jointed Frames', 'https://www.youtube.com/watch?v=3U_q7q7F-4g'],
+    ]},
+    {t:'Friction', links:[
+      ['Friction and Limiting Equilibrium', 'https://www.youtube.com/watch?v=OR4CjWKAKAU'],
+    ]},
+    {t:'Application of friction \u00b7 centroids by integration', links:[
+      ['Friction \u2014 Example (1)', 'https://www.youtube.com/watch?v=SFv7XpGcDwY'],
+      ['Friction \u2014 Example (2)', 'https://www.youtube.com/watch?v=4WMEsWUIkQI'],
+      ['How to Find the Centroid of the Area Under a Parabola', 'https://www.youtube.com/watch?v=4tUpUjUUYo8'],
+    ]},
+    {t:'Centroids of composite figures \u00b7 special topics', links:[
+      ['How to Find the Centroid of Simple Composite Shapes', 'https://www.youtube.com/watch?v=5oil5x9tVhg'],
+      ['Appendix A.1 \u2014 Centroids (MecMovies)', 'https://drbuc2jl8158i.cloudfront.net/shared/Engeneering/mecmovies/ch16/index.html#content_top'],
+    ]},
+    {t:'Resultant & equilibrium of 3D force systems', links:[
+      ['3.2 \u2014 How to Find Resultant of 3D Forces', 'https://www.youtube.com/watch?v=WhogP7p6R-c'],
+      ['5.5 \u2014 Moment of 3D Forces About a Point (Vector Method)', 'https://www.youtube.com/watch?v=I_IQGcDZZvA'],
+      ['10.1 \u2014 Single Force Resultant of Parallel Forces', 'https://www.youtube.com/watch?v=qx6Rt3Wf-xo'],
+    ]},
+    {t:'Moment of inertia', links:[
+      ['Appendix A.2 \u2014 Moment of Inertia (MecMovies)', 'https://drbuc2jl8158i.cloudfront.net/shared/Engeneering/mecmovies/ch16/index.html#content_top'],
+    ]},
+  ];
+  const fhaList = document.getElementById('fhaList');
+  fha.forEach((g)=>{
+    const item = document.createElement('div');
+    item.className = 'fha-item';
+    item.innerHTML = `
+      <button class="fha-head" aria-expanded="false">
+        <span class="t">${g.t}</span>
+        <span class="n">${g.links.length} video${g.links.length>1?'s':''}</span>
+      </button>
+      <div class="fha-body"><div class="fha-body-inner"><ul>${g.links.map(l=>`<li><a href="${l[1]}" target="_blank" rel="noopener">${l[0]}</a></li>`).join('')}</ul></div></div>
+    `;
+    fhaList.appendChild(item);
+    const head = item.querySelector('.fha-head');
+    const body = item.querySelector('.fha-body');
+    head.addEventListener('click', ()=>{
+      const isOpen = body.style.maxHeight;
+      head.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      body.style.maxHeight = isOpen ? null : body.scrollHeight+'px';
+    });
+  });
+
+  const policyGroups = [
+    {t:'Courtesy', items:[
+      'All members of the University community are expected to observe politeness, etiquette and courtesy with others and guests on campus at all times, and to show respect for exceptionalities, religion, race, sexual orientation, gender identity and political beliefs. Disrespect toward any member is not tolerated.',
+    ]},
+    {t:'Attendance', items:[
+      'Attendance is checked in both in-person and online classes. A student who incurs more than the maximum allowable absences (7.5 hours or 5 meetings for this course) receives a 0.0 for failure due to absences. In online classes, failing to signify presence when called twice, without valid reason, is recorded as absent.',
+      'A student who is absent is responsible for all assignments and content missed, regardless of the reason for the absence.',
+      'A student is considered absent if not present within the first third of the scheduled class time (grace period capped at 30 minutes for classes over 60 minutes).',
+      'Arriving within that first-third window counts as a half-absence (tardy); two half-absences make one full absence.',
+      'It\u2019s the student\u2019s responsibility to track their own absences; the University is not obligated to inform parents of absences incurred.',
+      'Approved absences must be processed within seven (7) working days from the date of return to class.',
+      'Students who miss a scheduled quiz must contact their lecturer within three days to explain and request a makeup; failing to do so results in a zero. Only one makeup schedule is given per long quiz, and it\u2019s only recorded once the absence is properly processed.',
+    ]},
+    {t:'Course policies', items:[
+      'Inform the professor in advance of any scheduled power interruption or internet maintenance during an online class; without valid, verifiable proof, the absence is considered unexcused.',
+      'Complaints about exam results are entertained only on the day results are distributed \u2014 no reconsideration afterward. All exams use a large test booklet, to be used properly and completely.',
+      'The course strictly implements a "No Solution, No Credit" policy \u2014 answers without complete, clearly written solutions receive zero credit.',
+      'Only one scientific calculator without a case is permitted during exams. Programmable calculators and calculator covers are prohibited.',
+      'Smart watches, wearables and smartphones are strictly forbidden during examinations; violators face disciplinary action.',
+      'Proper and appropriate attire is required during examinations \u2014 non-compliance may result in disqualification from taking the exam.',
+      'Electronic device use during class is prohibited unless explicitly permitted by the professor; violators are referred to the Discipline Office.',
+      'Failure to return exam questionnaires after long quizzes or the final exam results in a 20-point deduction.',
+      'Taking photos of lectures, slides or any class material during class is strictly prohibited; violators face disciplinary action.',
+      'Students are solely responsible for regularly checking CANVAS for activities and announcements \u2014 not checking is not a valid excuse for missed submissions.',
+      'All course requirements must be submitted via CANVAS only; submissions via comments or email are not considered.',
+      'All deadlines are indicated in the Learning Plan. No solution submitted, no credit; incomplete submissions aren\u2019t accepted. Late submissions are penalized 10% per day, and those over a week late receive zero.',
+      'Problem Sets and KCQs should not be accessed beyond their due dates \u2014 deductions apply automatically regardless of reason.',
+      'These policies may be superseded by the latest university Helpdesk Announcements (HDA).',
+      'Academic dishonesty in any form \u2014 cheating on a Long Quiz or Final Exam, unauthorized use of intellectual property (plagiarism), or lying to an instructor or university employee \u2014 is not tolerated. It carries a failing grade for that assessment and a strong possibility of course failure and referral for disciplinary action.',
+    ]},
+  ];
+  const policyGroupsEl = document.getElementById('policyGroups');
+  policyGroups.forEach(g=>{
+    const item = document.createElement('div');
+    item.className = 'policy-group';
+    item.innerHTML = `
+      <button class="policy-group-head" aria-expanded="false">
+        <span class="t">${g.t}</span>
+        <span class="chev">+</span>
+      </button>
+      <div class="policy-group-body"><div class="policy-group-body-inner"><ol>${g.items.map(x=>`<li>${x}</li>`).join('')}</ol></div></div>
+    `;
+    policyGroupsEl.appendChild(item);
+    const head = item.querySelector('.policy-group-head');
+    const body = item.querySelector('.policy-group-body');
+    head.addEventListener('click', ()=>{
+      const isOpen = body.style.maxHeight;
+      head.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      body.style.maxHeight = isOpen ? null : body.scrollHeight+'px';
+    });
+  });
+
+  const refs = [
+    {main:'Meriam, James L. et al. <strong>Engineering Mechanics</strong>, SI Version, 7th Edition, OBE Transformation Edition. Singapore: John Wiley &amp; Sons Singapore, 2014.'},
+    {main:'Chandramouli, P. N. <strong>Engineering Mechanics</strong>. New Delhi: PHI Learning Private, 2013.'},
+    {main:'Hibbeler, R.C. <strong>Engineering Mechanics</strong>, 12th Edition. Pearson Education South Asia, 2010.'},
+    {main:'Pytel, A. <strong>Engineering Mechanics: Statics</strong>, 3rd Edition. Cengage Learning, 2010.'},
+    {main:'Meriam, J.L. and Kraige, L.G. <strong>Engineering Mechanics: Statics</strong>, 6th Edition. John Wiley &amp; Sons, Inc., 2006.'},
+    {main:'Estanero, Romeo (Ed). <strong>Engineering Mechanics I (Statics)</strong>, 1st Edition. DLSU-Manila, 2002.'},
+    {main:'Baker, Daniel W. and Haynes, William. <strong>Engineering Statics: Open and Interactive</strong>.', link:'https://engineeringstatics.org/frontmatter.html'},
+    {main:'Philpot, Timothy A. <strong>MecMovies: Mechanics of Materials</strong>.', link:'https://drbuc2jl8158i.cloudfront.net/shared/Engeneering/mecmovies/ch16/index.html#content_top'},
+  ];
+  const refList = document.getElementById('refList');
+  refs.forEach(r=>{
+    const div = document.createElement('div');
+    div.className = 'ref-item';
+    div.innerHTML = r.main + (r.link ? `<br><a href="${r.link}" target="_blank" rel="noopener">${r.link}</a>` : '');
+    refList.appendChild(div);
+  });
+
+  const rQuiz = document.getElementById('rQuiz'), rFinal = document.getElementById('rFinal'), rPS = document.getElementById('rPS');
+  const oQuiz = document.getElementById('oQuiz'), oFinal = document.getElementById('oFinal'), oPS = document.getElementById('oPS');
+  const finalPct = document.getElementById('finalPct'), finalGpe = document.getElementById('finalGpe');
+  function gpeFor(pct){
+    if(pct>=94) return 4.0;
+    if(pct>=88) return 3.5;
+    if(pct>=82) return 3.0;
+    if(pct>=76) return 2.5;
+    if(pct>=70) return 2.0;
+    if(pct>=65) return 1.5;
+    if(pct>=60) return 1.0;
+    return 0.0;
+  }
+  function recalc(){
+    oQuiz.value = rQuiz.value; oFinal.value = rFinal.value; oPS.value = rPS.value;
+    const pct = (rQuiz.value*0.6 + rFinal.value*0.25 + rPS.value*0.15);
+    finalPct.textContent = pct.toFixed(1);
+    finalGpe.textContent = 'GPE ' + gpeFor(pct).toFixed(1);
+  }
+  [rQuiz,rFinal,rPS].forEach(r=>r.addEventListener('input', recalc));
+  recalc();
+</script>
+</body>
+</html>
